@@ -38,6 +38,13 @@ app.get('/contact', (req, res) => {
     res.send("welcome to contact")
 })
 
+app.get('/register',(req,res)=>{
+    res.send("welcome to register")
+})
+
+app.get('/signin',(req,res)=>{
+    res.send("welcome to sign in")
+})
 app.listen(PORT, () => {
     console.log(`server is listining ${PORT}`)
 });
