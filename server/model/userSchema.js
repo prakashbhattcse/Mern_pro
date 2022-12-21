@@ -55,7 +55,6 @@ userSchema.methods.generateAuthToken = async function () {
         let usertoken = jwt.sign({ _id: this._id }, process.env.SECRET_KEY);   // token generated
  
         //storing data to upper schema database and the left side token is the schema tokens word not token one
- 
         this.tokens = this.tokens.concat({ token: usertoken });
         await this.save();
         return usertoken;
@@ -64,6 +63,6 @@ userSchema.methods.generateAuthToken = async function () {
     }
 }
 
-const User = mongoose.model('USER', userSchema);
+const User = mongoose.model('USER', userSchema);     // const User ka first letter hamesha capital hoga like yha U capital h
 
 module.exports = User;

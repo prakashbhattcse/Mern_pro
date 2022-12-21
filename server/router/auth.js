@@ -81,15 +81,15 @@ router.post('/signin', async (req, res) => {
         if (userLogin) {
 
             const isMatch = await bcrypt.compare(password, userLogin.password);         //to compare hash password with user enter password during signin
-            
+
             // console.log(token);
             if (isMatch) {
                 res.json({ message: "user logged in succesfully" })
                 const token = await userLogin.generateAuthToken();
 
-                res.cookie("jwtoken",token,{
-                    expires:new Date(Date.now() + 25982000000),
-                    httpOnly:true
+                res.cookie("jwtoken", token, {
+                    expires: new Date(Date.now() + 25982000000),
+                    httpOnly: true
                 })
             } else {
                 res.status(400).json({ error: "Invalid data" });
